@@ -1,36 +1,70 @@
-/* EJERCICIO 8.2
-// Crear una lista enlazada ordenada de números enteros. Una vez creada la lista, se recorre para
-escribir los datos por pantalla
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
 package ListaOrdenada;
 
 /**
  *
- * @author GAGO RAMOS EDUARDO JESÚS
+ * @author EDUARDO
  */
-
-import ListaEnteros.Lista;
-import ListaEnteros.Nodo;
-
 public class ListaOrdenada extends Lista {
 
     public ListaOrdenada() {
+
         super();
+
     }
 
     public ListaOrdenada insertaOrden(int entrada) {
-        return null;
-        /*
-         * este método está escrito en el apartado 8.8
-         */
+
+        Nodo nuevo;
+
+        nuevo = new Nodo(entrada);
+
+        if (primero == null) // lista vacía
+        {
+            primero = nuevo;
+        } else if (entrada < primero.getDato()) {
+
+            nuevo.setEnlace(primero);
+
+            primero = nuevo;
+
+        } else /* búsqueda del nodo anterior a partir del que
+
+ se debe insertar */ {
+
+            Nodo anterior, p;
+
+            anterior = p = primero;
+
+            while ((p.getEnlace() != null) && (entrada > p.getDato())) {
+
+                anterior = p;
+
+                p = p.getEnlace();
+
+            }
+
+            if (entrada > p.getDato()) //se inserta después del último nodo
+            {
+                anterior = p;
+            }
+
+            // Se procede al enlace del nuevo nodo
+            nuevo.setEnlace(anterior.getEnlace());
+
+            anterior.setEnlace(nuevo);
+
+        }
+
+        return this;
+
     }
 
     // métodos a codificar:
-    public void eliminar(int entrada) {
-        ;
+    public void eliminar(int entrada) {;
     }
 
-    public Nodo buscarLista(int destino) {
-        ;
-        return primero;
-    }
 }
