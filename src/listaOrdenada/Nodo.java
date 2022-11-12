@@ -1,12 +1,10 @@
-package listaDobleEnlace;
+package listaOrdenada;
 // @autor GAGO RAMOS EDUARDO JESÚS
 
 public class Nodo {
 
     int dato;
     Nodo enlace;
-    Nodo adelante;
-    Nodo atras;
 
     public Nodo(int x) {
         dato = x;
